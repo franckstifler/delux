@@ -5,7 +5,6 @@ block content
         h4.center Login
         .col.s12
             form(method='POST', action='/login')
-                input(name='_csrf', value=csrfToken, type='hidden')
                 .row
                     .input-field.col.m6.offset-m3.s12
                         i.material-icons.prefix account_circle
@@ -26,7 +25,6 @@ block content
         h4.center Create an account
         .col.s12
             form(method='POST', action='/signup')
-                input(name='_csrf', value=csrfToken, type='hidden')
                 .row
                     .input-field.col.m6.offset-m3.s12
                         i.material-icons.prefix account_circle

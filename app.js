@@ -11,7 +11,7 @@ var mongoStore = require('connect-mongo')(session);
 var mongoose = require('mongoose');
 require('./passport');
 var helmet = require('helmet');
-var csurf = require('csurf');
+// var csurf = require('csurf');
 
 mongoose.Promise = global.Promise;
 //mongoose.connect('mongodb://localhost:27017/delux');
@@ -34,15 +34,16 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
+var sc = process.env.SECRET || 'lmjbgcdzawdrftgyhujikolp';
 app.use(session({
-  secret: process.ENV.SECRET || 'lmjbgcdzawdrftgyhujikolp.]',
+  secret: sc,
   store: new mongoStore({
     mongooseConnection: mongoose.connection
   }),
   resave: true,
   saveUninitialized: true
 }));
-app.use(csurf());
+// app.use(csurf({cookie: true}));
 app.use(flash());
 app.use(passport.initialize());
 app.use(passport.session());

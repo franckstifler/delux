@@ -1,0 +1,16 @@
+extends layout
+
+block content
+    .row
+        .col.s12
+            .form(method='POST')
+                .row
+                    .input-field.col.s12.offset-md-3.m6
+                        i.material-icons.prefix perm_identity
+                        input(placeholder='Username', name='username', id='username', type='text').validate
+                        label(for='username') Username
+                .row
+                    .input-field.col.m6.offset-m6
+                        i.material-icons.prefix accout_circle
+                        input(placeholder='Password', name='password', id='password', type='password').validate
+                        //label(for='username') Password

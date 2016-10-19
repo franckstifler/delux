@@ -1,0 +1,25 @@
+extends layout
+
+block content
+    .container
+        h4.center Edit this promotion!
+        .row
+            .col.offset-m3.m6.s12
+                form(method='POST')
+                    .row
+                        .input-field.col.s12
+                            input(placeholder='promotion title', name='title', id='new_promo_title', type='text', value=promotion.title).validate
+                            label(for='new_promo_title') Promotion title
+                    .row
+                        .input-field.col.s12
+                            input(name='display' type='checkbox', id='display' checked=promotion.display)
+                            label(for='display') Display the promotions?
+                    .row
+                        .input-field.col.s12
+                            textarea.materialize-textarea(id='new_promo_content', name='content', length='100') #{promotion.content}
+                            label(for='new_promo_content') Promotion Content
+                    .row
+                        .col.m3.offset-m2.offset-s2.s4
+                            .div
+                                button.btn.waves-effect.waves-light(type='submit') SUBMIT
+                                    i.material-icons.right send

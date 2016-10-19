@@ -1,0 +1,125 @@
+extends layout
+
+block content
+  .container
+    //.carousel
+    //  .carousel-item
+    //    p.red hello world!
+    //    img(src='images/mortel2.jpg')
+    //  .carousel-item
+    //    img(src='images/bg2.jpg')
+    //    p.red-text Look your style!
+    //  .carousel-item
+    //    img(src='images/bg3.jpg')
+    .slider.banner
+      ul.slides
+        li
+          img(src='images/bg8.jpg')
+          div.caption.left-align
+            h4.grey-text.text-darken-3 Feel your style!
+            p.grey-text.text-darken-2 We provide all types of looks, your are a Delux person!
+        li
+          img(src='images/bg7.jpg')
+          div.caption.center-align
+            h4.grey-text.text-lighten-3 All types of looks
+            p.grey-text.text-lighten-2 We provide all types of looks, your are a Delux person!
+        li
+          img(src='images/bg12.jpg')
+          .caption.right-align
+            h3.grey-text.text-lighten-4 Sports wear!
+            p.grey-text.text-lighten-3 We have dressing for your sports, they are Delux!
+        li
+          img(src='images/bg1.jpg')
+          .caption.right-align
+            h4.grey-text.text-darken-4 Delux for young!
+            p.grey-text.text-darken-3 If you like being in the new look, welcome!
+        li
+          img(src='images/bg5.jpg')
+          .caption.left-align
+            h4.grey-text.text-darken-3 Delux for ladies!
+            p.grey-text.text-darken-2 A huge variety of dressing for ladies and women!
+        li
+          img(src='images/bg6.jpg')
+          .caption
+            h4.grey-text.text-lighten-3 Delux for ladies!
+            p.grey-text.text-lighten-2 A huge variety of dressing for ladies and women!
+  .container
+    h4.center What we offer
+    .row
+      .col.s12
+        ul.tabs
+          li.tab.col.s4
+            a(href='#men') MEN
+          li.tab.col.s4
+            a(href='#women') WOMEN
+          li.tab.col.s4
+            a(href='#children') CHILDREN
+    .center#men.grey.lighten-3
+        .col.s8.m8
+          h4.blue-text.darken-3 Men dressing
+          ul.grey-text.darken-3
+            li Responsible outfits.
+            li Sports wear.
+            li Suits.
+            li Shirts.
+    .center#women.grey.lighten-3
+        .col.s8.m8
+          h4.red-text.lighten-3 Women dressing
+          ul.grey-text.darken-3
+            li Marriage gowns.
+            li Sports wear.
+            li Ladies suits
+    .center#children.grey.lighten-3
+        .col.s8.m8
+          h4.green-text.darken-3 Children dressing
+          ul.grey-text.darken-3
+            li Responsible outfits.
+            li Sports wear.
+            li Fantastic shirts.
+  .container
+    .divider
+  .promotions
+    .container
+      h4.center Special promotions!
+    .slider.promo
+      ul.slides
+        each promotion in promotions
+          li.promo
+            .caption
+              h5 #{promotion.title}
+              p #{promotion.content}
+  .grey.lighten-4
+    .container
+      .row
+        .col.s12.m4
+          .card
+            .card-image.box-shadow
+              img(src='/images/bg7.jpg')
+            .card-content
+              span.card-title Accesories
+              p About this product
+            .card-action
+              span.price
+                i.material-icons attach_money
+              span.like
+                i.material-icons plus_one
+        .col.s12.m4
+          .card
+            .card-image
+              img(src='/images/bg8.jpg')
+            .card-content
+              span.card-title Shirts
+              p About thiss product
+            .card-action
+              span.price 14 400
+              span.like alo
+        .col.s12.m4
+          .card
+            .card-image
+              img(src='/images/bg12.jpg')
+            .card-content
+              span.card-title Bags
+              p About thiss product
+            .card-action
+              span.price 14 400
+              span.like alo

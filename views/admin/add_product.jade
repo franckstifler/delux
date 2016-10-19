@@ -1,0 +1,22 @@
+extends layout
+
+block content
+
+    .container
+        .divider
+    .row
+        h4.center Add a new product
+        .col.s12
+            form(method='POST', action='/admin/products')
+                .row
+                    .input-field.col.m6.offset-m3.s12
+                        input(placeholder='product name', name='new_product_name', id='new_product_name', type='text').validate
+                        label(for='new_product_name') Product name
+                .row
+                    .input-field.col.m6.offset-m3.s12
+                        input(placeholder='product price', name='new_product_price', id='new_product_price', type='number').validate
+                        label(for='new_product_price') Product price
+                .row
+                    .col.m6.offset-m3.offset-s2.s8.center
+                        button.btn.waves-effect.waves-light(type='submit') SBMIT
+                            i.material-icons.right send

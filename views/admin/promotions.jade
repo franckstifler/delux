@@ -1,0 +1,84 @@
+extends layout
+
+block content
+    //modal
+    #modal.modal
+        .modal-content
+            h4.center Confirm deletion!
+            p Are you sure you want to delete this element, the process is not reversible?
+        .modal-footer
+            a(href='#').modal-action.modal-close.waves-yellow.btn-flat Close;
+            a(href='#')#agree.modal-action.modal-close.waves-yellow.btn-flat.red.darken-2 Agree
+    .row
+        h4.center Promotions
+
+        .col.s12.m8
+            h5 Manage promotions
+            h5 You have a total of #{result.total} Promotions.
+            table.highlight
+                thead
+                    tr
+                        th Title
+                        th Content
+                        th Show
+                        th Delete
+                tbody
+                    each promotion in result.docs
+                            tr
+                                td
+                                    a(href='/admin/promotions/'+promotion._id) #{promotion.title}
+                                td
+                                    a(href='/admin/promotions/'+promotion._id) #{promotion.content}
+                                td
+                                    a(href='/admin/promotions/'+promotion._id) #{promotion.display}
+                                td
+                                    a.delete(href='#', id=promotion._id)
+                                        i.material-icons delete
+            ul.pagination.center
+                if result.page == 1
+                    li.disabled
+                        a(href='#')
+                            i.material-icons chevron_left
+                else
+                    li.waves-effect
+                        a(href='/admin/promotions/?page='+(result.page-1)+'&limit=10')
+                            i.material-icons chevron_left
+                - for (var i=1; i<=result.pages; i++)
+                    if result.page == i
+                        li.active
+                            a(href='#') #{i}
+                    else
+                        li.waves-effect
+                            a(href='/admin/promotions/?page='+i+'&limit='+limit) #{i}
+                if result.page == result.pages
+                    li.disabled
+                        a(href='#')
+                            i.material-icons chevron_right
+                else
+                    li.waves-effect
+                        a(href='/admin/promotions/?page=' + (result.page + 1) + '&limit='+limit)
+                            i.material-icons chevron_right
+
+
+        .col.s12.m4
+            .row
+                h4.center Add a new promotion
+                .col.s12
+                    form(method='POST', action='/admin/promotions')
+                        .row
+                            .input-field.col.s12
+                                input(placeholder='promotion title', name='title', id='new_promo_title', type='text').validate
+                                label(for='new_promo_title') Promotion title
+                        .row
+                            .input-field.col.s12
+                                input(name='display' type='checkbox', id='display')
+                                label(for='display') Display the promotions?
+                        .row
+                            .input-field.col.s12
+                                textarea.materialize-textarea(id='new_promo_content', name='content', length='100')
+                                label(for='new_promo_content') Promotion Content
+                        .row
+                            .col.m6.offset-m3.offset-s2.s8.center
+                                button.btn.waves-effect.waves-light(type='submit') SUBMIT
+                                    i.material-icons.right send
+

@@ -1,0 +1,48 @@
+extends layout
+
+block content
+    .row
+        h4.center Login
+        .col.s12
+            form(method='POST', action='/login')
+                input(name='_csrf', value=csrfToken, type='hidden')
+                .row
+                    .input-field.col.m6.offset-m3.s12
+                        i.material-icons.prefix account_circle
+                        input(placeholder='username', name='username', id='username', type='text').validate
+                        label(for='username') Username
+                .row
+                    .input-field.col.m6.offset-m3.s12
+                        i.material-icons.prefix accoun_tcircle
+                        input(placeholder='password', name='password', id='password', type='password').validate
+                        label(for='username') Password
+                .row
+                    .col.m6.offset-m3.offset-s2.s8.center
+                        button.btn.waves-effect.waves-light(type='submit') SUBMIT
+                            i.material-icons.right send
+    .container
+        .divider
+    .row
+        h4.center Create an account
+        .col.s12
+            form(method='POST', action='/signup')
+                input(name='_csrf', value=csrfToken, type='hidden')
+                .row
+                    .input-field.col.m6.offset-m3.s12
+                        i.material-icons.prefix account_circle
+                        input(placeholder='username', name='n_username', id='n_username', type='text').validate
+                        label(for='n_username') Username
+                .row
+                    .input-field.col.m6.offset-m3.s12
+                        i.material-icons.prefix account_circle
+                        input(placeholder='email', name='n_email', id='n_email', type='email').validate
+                        label(for='n_email') Email
+                .row
+                    .input-field.col.m6.offset-m3.s12
+                        i.material-icons.prefix accoun_tcircle
+                        input(placeholder='password', name='n_password', id='n_password', type='password').validate
+                        label(for='n_password') Password
+                .row
+                    .col.m6.offset-m3.offset-s2.s8.center
+                        button.btn.waves-effect.waves-light(type='submit') SUBMIT
+                            i.material-icons.right done

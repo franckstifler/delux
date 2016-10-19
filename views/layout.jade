@@ -1,0 +1,63 @@
+doctype html
+html
+  head
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
+    meta(http-equiv='x-ua-compativle', content='ie=edge')
+    title= title
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    link(href='https://fonts.googleapis.com/icon?family=Material+Icons',rel='stylesheet')
+    //link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css')
+  body
+    nav
+      .nav-wrapper.grey.lighten-3
+        a(href='#').brand-logo Delux
+        a.button-collapse(href='#', data-activates='mobile')
+          i.material-icons menu
+        ul.hide-on-med-and-down.right.green-text
+          li
+            a(href='/')
+              span Home
+          li
+            a(href='/contact')
+              span Contact
+          if (!user)
+            li
+              a(href='/login')
+                span Login
+          else
+            li
+              a(href='/logout')
+                span Logout #{user.username}
+            if user.isAdmin
+              li
+                a(href='/admin')
+                  span Admin Panel
+        ul.side-nav#mobile
+          li
+            a(href='/') Home
+          li
+            a(href='/contact')
+              span Contact
+          if (!user)
+            li
+              a(href='/login')
+                span Login
+          else
+            li
+              a(href='/logout')
+                span Logout #{user.username}
+            if user.isAdmin
+              li
+                a(href='/admin')
+                  span Admin Panel
+    .container
+      each error in errors
+        p.red.center #{error}
+      each info in infos
+        p.blue #{info}
+
+    block content
+
+
+    include footer
